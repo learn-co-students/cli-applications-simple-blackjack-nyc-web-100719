@@ -44,12 +44,14 @@ def hit?(num)
     current_card_total += card
   elsif user_input == 's'
     current_card_total
-  else user_input != 'h' || user_input != 's'
+  else 
     invalid_command
     prompt_user
-  end  
+  end 
   current_card_total
 end
+
+hit?(9)
 
 #####################################################
 # get every test to pass before coding runner below #

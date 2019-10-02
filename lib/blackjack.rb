@@ -37,18 +37,18 @@ end
 
 def hit?(num)
   prompt_user
-  user_input = get_user_input
+  get_user_input
   current_card_total = num
-  if user_input == 'h'
+  if get_user_input == 'h'
     card = deal_card
     current_card_total += card
-  elsif user_input == 's'
+  elsif get_user_input == 's'
     current_card_total
-  else 
+  else get_user_input != 'h' || get_user_input != 's'
     invalid_command
     prompt_user
   end 
-  current_card_total
+  display_card_total(current_card_total)
 end
 
 hit?(9)
@@ -58,6 +58,18 @@ hit?(9)
 #####################################################
 
 def runner
-  # code runner here
+  welcome 
+  initial_round
+  hit?
+  get_user_input
+  if get_user_input == 's'
+    prompt_user
+  else get_user_input == 'h'
+    deal_card
+    display_card_total
+  end
+  if X > 21
+    end_game
+  end
 end
     
